@@ -3,7 +3,7 @@
 
 @interface NORLabelNode ()
 @property (nonatomic, strong) NSArray *subNodes;
-@property (nonatomic, strong) SKLabelNode *propertyStateholderNode; 
+@property (nonatomic, strong) SKLabelNode *propertyStateholderNode;
 @end
 
 
@@ -56,7 +56,7 @@ const CGFloat kDefaultFontSize    = 32.0;
 - (NSArray *)labelNodesFromText:(NSString *)text{
 	NSArray *substrings    = [text componentsSeparatedByString:@"\n"];
 	NSMutableArray *labelNodes    = [[NSMutableArray alloc] initWithCapacity:[substrings count]];
-
+    
 	NSUInteger labelNumber    = 0;
 	for (NSString *substring in substrings) {
 		SKLabelNode *labelNode    = [SKLabelNode labelNodeWithFontNamed:self.fontName];
@@ -81,6 +81,14 @@ const CGFloat kDefaultFontSize    = 32.0;
 	return [labelNodes copy];
 }
 
+- (CGFloat)height
+{
+    CGFloat yOrigin = [[_subNodes lastObject] frame].origin.y;
+    CGFloat yMaxHeight = [[_subNodes firstObject] frame].origin.y + [[_subNodes firstObject] frame].size.height;
+    CGFloat lineSpace = self.fontSize * self.lineSpacing;
+    CGFloat height = yMaxHeight - yOrigin + lineSpace;
+    return height;
+}
 
 #pragma mark - NSCopying
 

@@ -13,7 +13,7 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  
-*/
+ */
 
 #import <SpriteKit/SpriteKit.h>
 /** A subclass of SKLabelNode adding multiline functionality by using the regular \"\\n\" nextline character in the text-string. */
@@ -23,5 +23,6 @@
 @property (nonatomic, readonly, assign) NSUInteger numberOfLines;
 /// The float value controlling the space between lines. It works by multiplying the font's pointSize. The default value is 1.5.
 @property (nonatomic, assign) CGFloat lineSpacing;
-
+/// The height of all the labels stacked on each other
+@property (nonatomic, readonly) CGFloat height;
 @end
