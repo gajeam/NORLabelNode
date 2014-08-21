@@ -25,4 +25,6 @@
 @property (nonatomic, assign) CGFloat lineSpacing;
 /// The height of all the labels stacked on each other
 @property (nonatomic, readonly) CGFloat height;
+/// The width of the widest label node
+@property (nonatomic, readonly) CGFloat width;
 @end

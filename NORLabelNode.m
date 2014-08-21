@@ -90,6 +90,19 @@ const CGFloat kDefaultFontSize    = 32.0;
     return height;
 }
 
+- (CGFloat)width
+{
+    CGFloat width = 0.0;
+    for (SKLabelNode *node in _subNodes)
+    {
+        if (node.frame.size.width > width)
+        {
+            width = node.frame.size.width;
+        }
+    }
+    return width;
+}
+
 #pragma mark - NSCopying
 
 - (instancetype)copyWithZone:(NSZone *)zone{
